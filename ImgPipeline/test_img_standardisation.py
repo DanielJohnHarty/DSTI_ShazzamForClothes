@@ -33,7 +33,7 @@ def test_save_as_jpeg():
     try:
         standardize_Img.save_image_as_jpeg(img, test_dog_img_renamed)
     except Exception as e:
-        raise pytest.fail("Unable to save as jpeg at target path\{}".format(e))
+        raise pytest.fail("Unable to save as jpeg at target path")
 
 def test_image_resized_to_target_size():
     img = standardize_Img.load_image(test_dog_img)
