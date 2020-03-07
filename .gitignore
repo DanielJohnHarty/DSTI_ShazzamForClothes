@@ -2,3 +2,4 @@
 *pytest*
 *.pyc*
 *cpython*
+*config.ini*
