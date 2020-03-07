@@ -1,0 +1,3 @@
+filename,file_size,file_attributes,region_count,region_id,region_shape_attributes,region_attributes
+"robot.jpg,6189,""{}"",2,0,""{""""name"""":""""rect"""",""""x"""":53,""""y"""":15,""""width"""":118,""""height"""":73}"",""{""""clothes"""":""""hat""""}"""
+"robot.jpg,6189,""{}"",2,1,""{""""name"""":""""rect"""",""""x"""":65,""""y"""":133,""""width"""":93,""""height"""":77}"",""{""""clothes"""":""""jeans""""}"""
