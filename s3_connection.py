@@ -1,46 +1,23 @@
 import boto3
-from boto.s3.connection import S3Connection
-import configparser
+import auxiliary_functions as aux
 
-def get_config_parser():
-    # ConfigParser to read config.ini
-    Config = configparser.ConfigParser()
-    Config.read("config.ini")
-    return Config
 
 def get_S3_credentials():
-    CredentialsConfig = get_config_parser()
+
+    config_parser = aux.CONFIG_PARSER
 
     credentials = {
-    'aws_access_key_id' : CredentialsConfig.get("aws_credentials", "aws_access_key_id"),
-    'aws_secret_access_key' : CredentialsConfig.get("aws_credentials", "aws_secret_access_key"),
-    'aws_session_token' : CredentialsConfig.get("aws_credentials", "aws_session_token"),
-    'conn' : S3Connection(
-                CredentialsConfig.get("aws_credentials", "aws_access_key_id"),
-                CredentialsConfig.get("aws_credentials", "aws_secret_access_key")),
-    'region' : 'us-east-1'
+        "aws_access_key_id": config_parser.get("aws_credentials", "aws_access_key_id"),
+        "aws_secret_access_key": config_parser.get(
+            "aws_credentials", "aws_secret_access_key"
+        ),
+        "region": config_parser.get("aws_global_parameters", "target_region"),
     }
     return credentials
 
-def get_s3_client(credentials):
-    credentials = get_S3_credentials()
 
-    s3 = boto3.client(
-        "s3",
-        aws_access_key_id=credentials['aws_access_key_id'],
-        aws_secret_access_key=credentials['aws_secret_access_key'],
-        aws_session_token=credentials['aws_session_token'],
-        region_name=credentials['region'],
-    )
-    return s3
-
-def get_bucket(client, bucket_name):
-    bucket = client.get_bucket(bucket_name)
-    return bucket
-
-
-S3_BUCKET = "shutiimgbucket"
-CSV_FILE = "img_data.csv"
+RAW_IMAGES_BUCKET = aux.CONFIG_PARSER.get("aws_s3_parameters", "raw_images_bucket_name")
+CSV_FILE = aux.CONFIG_PARSER.get("aws_s3_parameters", "related_data_csv")
 CREDENTIALS = get_S3_credentials()
 s3 = get_s3_client(CREDENTIALS)
 con = CREDENTIALS['conn']
