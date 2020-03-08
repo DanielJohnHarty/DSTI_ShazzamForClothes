@@ -1,3 +1,4 @@
+import os
 import boto3
 import auxiliary_functions as aux
 
@@ -43,6 +44,16 @@ def yield_items_in_bucket(bucket):
         }
 
         yield d
+
+
+def download_file_from_bucket(
+    target_filename, s3_bucket=RAW_IMAGES_BUCKET, local_directory=""
+):
+    try:
+        download_path = os.path.join(local_directory, target_filename)
+        s3_bucket.download_file(target_filename, download_path)
+    except Exception as e:
+        raise Exception(e)
 
 
 session = get_aws_session(CREDENTIALS)
