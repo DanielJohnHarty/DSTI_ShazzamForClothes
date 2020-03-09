@@ -1,3 +1,9 @@
+import os, sys, inspect
+
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+
 import boto3
 import pymysql
 import auxiliary_functions as aux
@@ -77,14 +83,7 @@ class Database:
         )
 
 
-# db = Database()
+db = Database()
 # db.add_raw_image(src_link)
-# r=db.get_list_RAW_IMAGES()
-
-
-"""
-# To do
-1. Download image
-2. Create remaining tables
-3. Write processed images
-""
+r = db.get_list_RAW_IMAGES()
+print(r)
