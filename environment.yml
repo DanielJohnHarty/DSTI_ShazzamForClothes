@@ -1,0 +1,10 @@
+name: ShazzamForClothes
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - pytest
+  - pillow
+  - boto
+  - boto3
+  - ipython
