@@ -80,11 +80,3 @@ class Database:
 # db = Database()
 # db.add_raw_image(src_link)
 # r=db.get_list_RAW_IMAGES()
-
-
-"""
-# To do
-1. Download image
-2. Create remaining tables
-3. Write processed images
-""
