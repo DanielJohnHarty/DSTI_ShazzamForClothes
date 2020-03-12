@@ -23,4 +23,4 @@ install:
   - conda activate ShazzamForClothes
 
 script:
-  - pytest -v -s
+  - pytest ShazzamForClothes/tests -v -s
