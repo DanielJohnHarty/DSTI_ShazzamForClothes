@@ -1,4 +1,4 @@
-import standardize_Img as sti
+from . import standardise_img
 import csv
 
 def yield_rows_from_csv(csv_pth):
