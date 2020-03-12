@@ -21,6 +21,5 @@ install:
   # Build env (note environment.yml must be generated with "conda env export --from-history")
   - conda env create -f environment.yml
   - conda activate ShazzamForClothes
-
 script:
   - pytest ShazzamForClothes/tests -v -s
