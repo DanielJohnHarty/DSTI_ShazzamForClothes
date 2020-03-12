@@ -1,14 +1,14 @@
 import boto3
 import pymysql
-import auxiliary_functions as aux
+from ShazzamForClothes.config import LOADED_CONFIG
 
-config = aux.CONFIG_PARSER
+__all__ = ['Database']
 
 
 class Database:
     """Database connection class."""
 
-    def __init__(self):
+    def __init__(self, config = LOADED_CONFIG):
         self.host = config.get("aws_rds_parameters", "endpoint")
         self.username = config.get("aws_rds_parameters", "admin_user")
         self.password = config.get("aws_rds_parameters", "admin_password")

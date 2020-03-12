@@ -1,11 +1,19 @@
 import os
 import boto3
-import auxiliary_functions as aux
+from ShazzamForClothes.config import LOADED_CONFIG
+
+__all__ = [
+    "get_S3_credentials",
+    "get_aws_session",
+    "yield_items_in_bucket",
+    "download_file_from_bucket",
+    "get_s3_resource",
+    "get_s3_bucket",
+    "get_aws_session"
+]
 
 
-def get_S3_credentials():
-
-    config_parser = aux.CONFIG_PARSER
+def get_S3_credentials(config_parser=LOADED_CONFIG):
 
     credentials = {
         "aws_access_key_id": config_parser.get("aws_credentials", "aws_access_key_id"),
@@ -17,9 +25,20 @@ def get_S3_credentials():
     return credentials
 
 
-RAW_IMAGES_BUCKET = aux.CONFIG_PARSER.get("aws_s3_parameters", "raw_images_bucket_name")
-CSV_FILE = aux.CONFIG_PARSER.get("aws_s3_parameters", "related_data_csv")
+RAW_IMAGES_BUCKET = LOADED_CONFIG.get("aws_s3_parameters", "raw_images_bucket_name")
+CSV_FILE = LOADED_CONFIG.get("aws_s3_parameters", "related_data_csv")
 CREDENTIALS = get_S3_credentials()
+
+
+def get_s3_resource(credentials=CREDENTIALS):
+    session = get_aws_session(credientials)
+    s3 = session.resource("s3")
+    return s3
+
+
+def get_s3_bucket(s3_resource, bucket_name=RAW_IMAGES_BUCKET):
+    bucket = s3_resource.Bucket(bucket_name)
+    return bucket
 
 
 def get_aws_session(credentials=CREDENTIALS):
@@ -55,7 +74,3 @@ def download_file_from_bucket(
     except Exception as e:
         raise Exception(e)
 
-
-session = get_aws_session(CREDENTIALS)
-s3 = session.resource("s3")
-bucket = s3.Bucket(RAW_IMAGES_BUCKET)

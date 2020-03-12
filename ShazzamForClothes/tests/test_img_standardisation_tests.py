@@ -1,12 +1,13 @@
 import pytest
 import os
 from PIL import Image
-from context import img_preparation, tests_root_dir
-from img_preparation import standardise_img
+from ShazzamForClothes.img_preprocessor import standardise_img
+from ShazzamForClothes.tests import TESTS_ROOT_DIR
 
-test_dog_img = os.path.join(tests_root_dir, "TestFiles", "test_dog.jpeg")
-test_dog_img_renamed = os.path.join(tests_root_dir, "TestFiles", "test_dog_jpeg.jpeg")
-robot_img = os.path.join(tests_root_dir, "TestFiles", "robot.jpg")
+
+test_dog_img = os.path.join(TESTS_ROOT_DIR, "TestFiles", "test_dog.jpeg")
+test_dog_img_renamed = os.path.join(TESTS_ROOT_DIR, "TestFiles", "test_dog_jpeg.jpeg")
+robot_img = os.path.join(TESTS_ROOT_DIR, "TestFiles", "robot.jpg")
 
 
 def test_dog_image_opens():
