@@ -5,33 +5,89 @@ Create a service which on, reception of a photo or an image from a user, can pro
 
 >A user sees a person with an appealing outfit or piece of clothing. Being as little weird as possible, user takes a picture using the service interface/application. After processing the image, the service returns a series of recommendations for the user to buy related items of clothing from online stores.
 
-
-
-![Database Structure](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/database_structure.png)
-
 ![Image Processing Daemon Service](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/img_proc_daemon.png)
 
 ![User Shazzam Process](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/user_shazzam_process.png)
 
 
-## Description of this repository
+# ***QUICK START Part 1 - Setup***
 
-This GitHub repo contains:
+# ***Step 1*** - *Install Anaconda based Python3 distribution on your machine*
 
-1. A python package *ShazzamForClothes* which can be imported into your where you can use its *subpackages* to perform different tasks. HEre is a short description of each subpackage and see the relevant section forther down in this document for more details and examples of usage. The code is also documented.
+You only need this if you don't have Anaconda already. Entering:
+```conda --version```
+...on your command line prompt will return a variant of "Not Found" if you don't have it.
 
-    - The *ShazzamForClothes.database_api* subpackage includes functions and classes to interact with the project relational database. 
-    - The *ShazzamForClothes.img_preprocessor* subpackage includes functions and classes to perform preprocessing operations on images, such as changing their size, shape and image type.
-    - The *ShazzamForClothes.s3_api* subpackage includes functions and classes to interact with the *s3* storage for the *ShazzamForClothes* project. This will likely be removed as *s3* storage may not be necessary to deliver the prototype. 
-    - The *ShazzamForClothes.tests* subpackage is the space where tests are stored for all the *ShazzamForClothes* subpackages
-    - The *ShazzamForClothes.config* subpackage contains the *config.ini file*, where all credentials and other confidential should be stored. The *config.ini* is in the .gitignore file meaning it will not be uploaded to github but a template version of the file *config_default.ini* which contains all the keys but none of the values. For the code to wrok reliably in *ShazzamForCLothes*, the first step is to create valid and omplete *config.ini*.
 
-2. A travis continuous integration file which is used by travis each time a commit, performing the operations defined in the *.travis.yml* file.
-3. A *.gitignore* file which explicitly denies the uplaoding of any cacheed files, confidential files or 2scrappy notes" from being pushed to github.
-4. an *environment.yml* file, which is a manifest of the python environment used during development.
-    - To recreate this environment on your machine, make sure you have an Conda/Anaconda or MiniConda python distribution on your system and enter: 
-        - ***conda env create -f environment.yml***
-    - If you install additional packages and want to update the environment.yml file, use the command:
-        - ***conda env export --from-history > environment.yml***
-5. The documents folder holds various documents, images and specifications.
+[Anaconda Download](https://www.anaconda.com/distribution/#download-section)
 
+
+# ***Step 2*** - *Download package*
+
+```git clone https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes.git```
+
+# ***Step 3*** - *Create virtual environment*
+
+cd into your ShazzamForClothes directory and recreate it's virtual environment using the following command:
+
+- Using Powershell?
+    ```conda env export --from-history | Out-File -Encoding utf8 environment.yml```
+
+- Otherwise:
+    ```conda env export --from-history > environment.yml```
+
+# ***Step 4*** - *Create your config.ini*
+
+In the folder ***ShazzamFoorClothes/config***, there is a file called ***config_default.ini*** which details all the keys, ids and passwords etc. that the package needs. 
+
+Rename ***config_default.ini*** to ***config.ini*** and add the necessary details. **Don't "quote" strings in the ini file***
+
+# ***QUICK START Part 2 - Basic Database_api Usage***
+
+The database_api subpackage has a single 'Database' class which uses the credentials in your config.ini file to connect to the database.
+
+Step 1: Import the module
+
+```import ShazzamForClothes.database_api as db_api```
+
+Step 2: Instantiate the Database class as an object
+
+```db = db_api.Database()```
+
+Step 3: Open a conection to the database
+
+```db.open_connection()``` 
+
+Step 4: Use the ***Database.run_query*** method to query the database.
+```
+sql="SELECT * FROM RAW_IMAGES;"
+results = db.run_query(sql)
+```
+
+Step 5: Iterate through the results
+```
+for result in results:
+    print(result)
+```
+
+***Database Structure Proposition***
+![Database Structure](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/database_structure.png)
+
+![Database_api instance run_query method](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/run_query.png)
+
+### **You are encouraged to subclass the Database class, filled with customisations which simplifyt your team's scripts.**
+
+
+# ***QUICK START Part 3 - Image Preprocessing***
+
+The img_preprocessor subpackage includes a multitude of functions to preprocess images. They are short, concise and commented so rather than describe each of them, I recommend you [read the code here.](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/ShazzamForClothes/img_preprocessor/standardise_img.py)
+
+The following constants are defined in the ***img_preprocessor.standardise_img*** module:
+
+- **STANDARD_IMAGE_SIZE = (224, 224)**
+
+- **STANDARD_IMAGE_MODE = "RGB"**
+
+The ***standardise_img*** function loads, converts and resizes an image but the implementation will have to be adjusted if project requirements change.
+
+### **You are encouraged to contribute to the ***img_preprocessor.standardise_img*** module to adapt to the evoloving requirements and needs of your team/process**
