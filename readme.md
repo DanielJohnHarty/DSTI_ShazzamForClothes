@@ -80,14 +80,14 @@ for result in results:
 
 # ***QUICK START Part 3 - Image Preprocessing***
 
-The img_preprocessor subpackage includes a multitude of functions to preprocess images. They are short, concise and commented so rather than describe each of them, I recommend you [read the code here.](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/ShazzamForClothes/img_preprocessor/standardise_img.py)
+The img_preprocessor subpackage includes a multitude of functions to preprocess images. They are short, concise and commented so rather than describe each of them, I recommend you [read the code here.](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/ShazzamForClothes/img_preprocessor/img_api.py)
 
-The following constants are defined in the ***img_preprocessor.standardise_img*** module:
+The following constants are defined in the ***img_preprocessor.img_api*** module:
 
 - **STANDARD_IMAGE_SIZE = (224, 224)**
 
 - **STANDARD_IMAGE_MODE = "RGB"**
 
-The ***standardise_img*** function loads, converts and resizes an image but the implementation will have to be adjusted if project requirements change.
+The ***standardise_img*** function encompasses img loading, conversion and resizing in a single function call but the implementation will have to be adjusted if project requirements change.
 
-### **You are encouraged to contribute to the ***img_preprocessor.standardise_img*** module to adapt to the evoloving requirements and needs of your team/process**
+### **You are encouraged to contribute to the ***img_preprocessor.img_api*** module to adapt to the evoloving requirements and needs of your team/process**

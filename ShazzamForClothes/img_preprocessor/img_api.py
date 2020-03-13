@@ -2,16 +2,16 @@ from PIL import Image
 import os
 
 __all__ = [
-    "STANDARD_IMAGE_SIZE",
-    "STANDARD_IMAGE_MODE",
-    "load_image",
-    "get_image_format",
-    "get_image_size",
-    "get_image_colour_mode",
-    "save_image_as_jpeg",
-    "resize_image",
-    "get_subsection_of_image",
-    "standardise_img",
+    # "STANDARD_IMAGE_SIZE",
+    # "STANDARD_IMAGE_MODE",
+    # "load_image",
+    # "get_image_format",
+    # "get_image_size",
+    # "get_image_colour_mode",
+    # "save_image_as_jpeg",
+    # "resize_image",
+    # "get_subsection_of_image",
+    # "standardise_img",
 ]
 
 STANDARD_IMAGE_SIZE = (224, 224)

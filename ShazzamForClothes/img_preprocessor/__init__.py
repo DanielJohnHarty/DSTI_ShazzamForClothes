@@ -1,4 +1,3 @@
-from .standardise_img import *
+from .img_api import *
 
-__all__ = standardise_img.__all__
-
+__all__ = img_api.__all__
