@@ -30,19 +30,16 @@ You only need this if you don't have Anaconda already. Entering:
 
 cd into your ShazzamForClothes directory and recreate it's virtual environment using the following command:
 
-- Using Powershell?
-    ```conda env export --from-history | Out-File -Encoding utf8 environment.yml```
+- ```conda env create -f environment.yml```
 
-- Otherwise:
-    ```conda env export --from-history > environment.yml```
 
 # ***Step 4*** - *Create your config.ini*
 
 In the folder ***ShazzamFoorClothes/config***, there is a file called ***config_default.ini*** which details all the keys, ids and passwords etc. that the package needs. 
 
-Rename ***config_default.ini*** to ***config.ini*** and add the necessary details. **Don't "quote" strings in the ini file***
+Rename ***config_default.ini*** to ***config.ini*** and add the necessary details. **Don't "quote" strings in the ini file**.
 
-# ***QUICK START Part 2 - Basic Database_api Usage***
+# ***QUICK START Part 2 - Basic database_api Usage***
 
 The database_api subpackage has a single 'Database' class which uses the credentials in your config.ini file to connect to the database.
 
@@ -75,12 +72,12 @@ for result in results:
 
 ![Database_api instance run_query method](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/Documents/imgs/run_query.png)
 
-### **You are encouraged to subclass the Database class, filled with customisations which simplifyt your team's scripts.**
+### **You are encouraged to subclass the Database class for your team's activities.**
 
 
 # ***QUICK START Part 3 - Image Preprocessing***
 
-The img_preprocessor subpackage includes a multitude of functions to preprocess images. They are short, concise and commented so rather than describe each of them, I recommend you [read the code here.](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/ShazzamForClothes/img_preprocessor/img_api.py)
+The img_preprocessor subpackage includes a multitude of functions to preprocess images. They are short, concise and understandable so rather than describe each of them, I recommend you [check out the code here.](https://github.com/DanielJohnHarty/DSTI_ShazzamForClothes/blob/master/ShazzamForClothes/img_preprocessor/img_api.py)
 
 The following constants are defined in the ***img_preprocessor.img_api*** module:
 
@@ -88,6 +85,6 @@ The following constants are defined in the ***img_preprocessor.img_api*** module
 
 - **STANDARD_IMAGE_MODE = "RGB"**
 
-The ***standardise_img*** function encompasses img loading, conversion and resizing in a single function call but the implementation will have to be adjusted if project requirements change.
+The ***standardise_img*** function encompasses image loading, conversion and resizing in a single function call but the implementation will have to be adjusted if project requirements change.
 
-### **You are encouraged to contribute to the ***img_preprocessor.img_api*** module to adapt to the evoloving requirements and needs of your team/process**
+### **You are encouraged to contribute to the ***img_preprocessor.img_api*** module**

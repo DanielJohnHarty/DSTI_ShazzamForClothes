@@ -1,5 +1,9 @@
-quick start
-
 code comment
 
 tell team
+
+- Using Powershell?
+    ```conda env export --from-history | Out-File -Encoding utf8 environment.yml```
+
+- Otherwise:
+    ```conda env export --from-history > environment.yml```
