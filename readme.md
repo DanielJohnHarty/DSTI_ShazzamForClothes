@@ -53,9 +53,9 @@ Or activate another one with:
 
 ### ***RETRO YOLO AKA: USING PIP***
 
-cd into your ShazzamForClothes directory and recreate it's virtual environment using the following commands:
+cd into your ShazzamForClothes directory and recreate it's virtual environment using the following commands. ***Note to use Powershell on Windows rather than CMD***, or any common command line tool in Mac or Linux:
 
-1. Ensure you're using Python 3.7 to guarantee environment parity. Enter the following command to check which pythonn version you're using:
+1. Ensure you're using Python 3.7 to guarantee environment parity. Enter the following command to check which python version you're using:
 
     ```python --version```
 
@@ -65,11 +65,11 @@ cd into your ShazzamForClothes directory and recreate it's virtual environment u
 
 3. Create a ShazzamForClothes named virtual environment
 
-     ```python -m venv "Z:\target\dir\for\virtual_env"```
+     ```python -m venv "~/Anaconda3/envs/ShazzamForClothes"```
 
 4. Activate this virtual envvironment, run the activate script here:
    
-   ```Z:\target\dir\for\virtual_env\Scripts\activate```
+   ```~/Anaconda3/envs/ShazzamForClothes/Scripts/activate```
   
 5. Install the dependencies from the requirements file
 
@@ -77,7 +77,7 @@ cd into your ShazzamForClothes directory and recreate it's virtual environment u
 
 6. To deactivate the virtual envirnment later, run the deactivate script here:
    
-   ```Z:\target\dir\for\virtual_env\ShazzamForClothes_env\Scripts\deactivate```
+   ```~/Anaconda3/envs/ShazzamForClothes/Scripts/deactivate```
 
 
 
