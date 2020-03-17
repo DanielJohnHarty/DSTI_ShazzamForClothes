@@ -28,9 +28,57 @@ You only need this if you don't have Anaconda already. Entering:
 
 # ***Step 3*** - *Create virtual environment*
 
-cd into your ShazzamForClothes directory and recreate it's virtual environment using the following command:
+There are many ways to create a virtual environment all with their pros and cons. Here I describe 2 ways.
+
+***PIP Vs. ANACONDA***
+
+Pip and Anaconda both offer a service to manage and install packages in your python environment(s). I always use conda where I can because its packages are curated and you can always assume a high level of compatibility between conda packages therefore reducing the risk of 'complex to resolve' installation or configuration errors. Anaconda also comes with preconfigured gui based software to manage your virtual envs and to launch really high quality, useful and pre-configured software.
+
+
+### ***NEW SKOOL COOL AKA: USING CONDA***
+
+cd into your ShazzamForClothes directory and recreate it's virtual environment and activate it using the following command:
 
 - ```conda env create -f environment.yml```
+  
+Later to deactivate the virtual environment, either deactivate it with:
+
+- ```conda deactivate```
+
+Or activate another one with:
+
+- ```conda activate name_of_another_virtual_env```
+
+*Yeah it's that simple. All details of the envirnment are in the environment.yml*
+
+### ***RETRO YOLO AKA: USING PIP***
+
+cd into your ShazzamForClothes directory and recreate it's virtual environment using the following commands:
+
+1. Ensure you're using Python 3.7 to guarantee environment parity. Enter the following command to check which pythonn version you're using:
+
+    ```python --version```
+
+2. Install venv software if it's not already
+
+   ```python -m pip install --user virtualenv```
+
+3. Create a ShazzamForClothes named virtual environment
+
+     ```python -m venv "Z:\target\dir\for\virtual_env"```
+
+4. Activate this virtual envvironment, run the activate script here:
+   
+   ```Z:\target\dir\for\virtual_env\Scripts\activate```
+  
+5. Install the dependencies from the requirements file
+
+    ```pip install -r requirements.txt```
+
+6. To deactivate the virtual envirnment later, run the deactivate script here:
+   
+   ```Z:\target\dir\for\virtual_env\ShazzamForClothes_env\Scripts\deactivate```
+
 
 
 # ***Step 4*** - *Create your config.ini*
@@ -38,6 +86,7 @@ cd into your ShazzamForClothes directory and recreate it's virtual environment u
 In the folder ***ShazzamFoorClothes/config***, there is a file called ***config_default.ini*** which details all the keys, ids and passwords etc. that the package needs. 
 
 Rename ***config_default.ini*** to ***config.ini*** and add the necessary details. **Don't "quote" strings in the ini file**.
+
 
 # ***QUICK START Part 2 - Basic database_api Usage***
 
