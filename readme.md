@@ -37,7 +37,7 @@ Pip and Anaconda both offer a service to manage and install packages in your pyt
 
 ### ***NEW SKOOL COOL AKA: USING CONDA***
 
-cd into your ShazzamForClothes directory and recreate it's virtual environment and activate it using the following command:
+cd into your ShazzamForClothes directory and recreate it's virtual environment and activate it using the following commands. ***Note to use Powershell on Windows rather than CMD***, or any common command line tool in Mac or Linux:
 
 - ```conda env create -f environment.yml```
   

@@ -9,4 +9,4 @@ dependencies:
   - ipython
   - pillow
   - pymysql
-prefix: C:\Users\Daniel\Anaconda3\envs\ShazzamForClothes
+prefix: ~/Anaconda3/envs/ShazzamForClothes
