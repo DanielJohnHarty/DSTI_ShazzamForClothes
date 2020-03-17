@@ -1,10 +1,7 @@
 import os
 import configparser
 
-# __all__ = ["LOADED_CONFIG", "get_config_parser"]
-__all__ = ["LOADED_CONFIG"]
-
-
+# Hardcoded path to the file with all the credentials
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), "config.ini")
 
 
@@ -15,4 +12,5 @@ def get_config_parser(config_file=CONFIG_FILE):
     return Config
 
 
+# Used through teh package to retrive credentials
 LOADED_CONFIG = get_config_parser()

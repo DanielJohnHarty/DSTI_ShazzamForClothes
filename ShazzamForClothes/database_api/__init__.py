@@ -1,2 +1,1 @@
-from .db_api import *
-__all__= (db_api.__all__)
+from .db_api import Database

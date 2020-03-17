@@ -1,2 +1,1 @@
-from .configuration_code import *
-__all__= (configuration_code.__all__)
+from .configuration_code import LOADED_CONFIG
